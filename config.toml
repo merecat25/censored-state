@@ -1,0 +1,23 @@
+baseURL = "https://censored-state.pages.dev/"
+languageCode = "en-us"
+title = "Censored State"
+theme = "PaperMod"
+
+[params]
+  author = "Merecat"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+
+[[menu.main]]
+  name = "Circumvention Tools"
+  url = "/circumvention-tools"
+  weight = 1
+
+[[menu.main]]
+  name = "About"
+  url = "/about"
+  weight = 2
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"

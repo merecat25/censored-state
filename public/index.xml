@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Welcome to Censored State on Censored State</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in Welcome to Censored State on Censored State</description>
+    <generator>Hugo -- 0.146.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 May 2025 10:23:30 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VPNs: Can They Outrun the Censors? What You Need to Know</title>
+      <link>http://localhost:1313/posts/vpns-can-they-outrun-the-censors/</link>
+      <pubDate>Sun, 11 May 2025 10:23:30 -0400</pubDate>
+      <guid>http://localhost:1313/posts/vpns-can-they-outrun-the-censors/</guid>
+      <description>&lt;h2 id=&#34;virtual-private-networks&#34;&gt;Virtual Private Networks&lt;/h2&gt;
+&lt;p&gt;Virtual Private Networks (VPNs) are one of the most important tools in the fight against online censorship. A VPN can allow an internet user to surf the web with reasonable anonymity, access websites that may be blocked in their country, and sometimes even bypass advances censorship technologies. Because of these and other abilities, citizens of authoritarian regimes can get news, entertainment, and other information otherwise unavailable to them. A VPN, though, is not a panacea, and even the best VPNs have limitations.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Sun, 11 May 2025 09:48:57 -0400</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Censored State&lt;/strong&gt; is a project exploring censorship, surveillance, and digital resistance.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Circumvention Tools</title>
+      <link>http://localhost:1313/circumvention-tools/</link>
+      <pubDate>Sun, 11 May 2025 09:48:57 -0400</pubDate>
+      <guid>http://localhost:1313/circumvention-tools/</guid>
+      <description>&lt;h1 id=&#34;here-are-tools-and-services-that-help-bypass-censorship-and-maintain-online-privacy&#34;&gt;Here are tools and services that help bypass censorship and maintain online privacy.&lt;/h1&gt;
+&lt;h2 id=&#34;circumvention-tools&#34;&gt;Circumvention Tools&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://tails.net/&#34;&gt;Tails&lt;/a&gt; (Live Linux Operating System)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://protonvpn.com/&#34;&gt;ProtonVPN&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.torproject.org/download/&#34;&gt;The Tor Browser&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Yawning/obfs4/&#34;&gt;Obfs4 (Pluggable transport)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://fteproxy.org/&#34;&gt;fteproxy (Pluggable transport)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://gitlab.torproject.org/legacy/trac/-/wikis/doc/meek&#34;&gt;meek (Pluggable transport)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://freebrowser.org/#heroSection&#34;&gt;FreeBrowser (A censorship circumvention browser)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://search.brave.com/&#34;&gt;Brave Search&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.startpage.com/&#34;&gt;Startpage (Search Engine)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://account.proton.me/mail&#34;&gt;Protonmail&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://mail.tutanota.com/login&#34;&gt;Tutamail&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://signal.org/download/&#34;&gt;Signal Messaging&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://threema.ch/en&#34;&gt;Threema Messaging&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://proton.me/drive&#34;&gt;Proton Drive&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://web.tresorit.com/login&#34;&gt;Tresorit (Secure Storage)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://lantern.io/&#34;&gt;Lantern&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://psiphon.ca/en/download.html&#34;&gt;Psiphon&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Quad9 (Alternate DNS) at IP Address 9.9.9.9&lt;/p&gt;
+&lt;p&gt;DNSWatch (Alternate DNS) at IP Address 84.200.69.80&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
