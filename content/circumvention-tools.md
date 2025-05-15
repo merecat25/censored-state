@@ -77,3 +77,24 @@ DNSWatch (Alternate DNS) at IP Address 84.200.69.80
 [Freedom in the World 2025](https://freedomhouse.org/sites/default/files/2025-03/FITW_World2025digitalN.pdf)
 
 [Freedom on the Net](https://freedomhouse.org/report/freedom-net)
+
+## Github Repositores and Projects
+
+[danoctavian/awesome-anticensorship (A large repository of anticensorship tools)](https://github.com/danoctavian)
+
+[marzenshin/awesome-anticensor (Another tool repository)](https://github.com/marzneshin/awesome-anticensor)
+
+[cbeuw/Cloak (A pluggable transport proxy)](https://github.com/cbeuw)
+
+[xvzc/Spoof/DPI (A tool to bypass DPI)](https://github.com/xvzc)
+
+[SadeghHayeri/GreenTunnel (Another DPI bypass tool)](https://github.com/SadeghHayeri)
+
+[apernet/hysteria (A censorship resistant proxy tool)](https://github.com/apernet)
+
+[Kkevsterrr/geneva (An AI anti-censorship tool)](https://github.com/Kkevsterrr)
+
+[censortracker/censortracker (A browser extension for custom proxies)](https://github.com/censortracker)
+
+[anticensority/runet-censorship-bypass (Tools specifically for bypassing Russian censorship)](https://github.com/anticensority)
+
