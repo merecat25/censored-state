@@ -1,5 +1,5 @@
 ---
-title: "Circumvention Tools"
+title: "Resources and Tools"
 date: 2025-05-11T09:48:57-04:00
 draft: false
 ---
@@ -67,6 +67,14 @@ DNSWatch (Alternate DNS) at IP Address 84.200.69.80
 [Greatfire.org](https://en.greatfire.org/)
 
 [DFRLab](https://dfrlab.org/)
+
+[Cloudflare Radar](https://radar.cloudflare.com/)
+
+[Shodan](https://www.shodan.io/)
+
+[ACLED Armed COnflict and Event Data](https://acleddata.com/)
+
+[BGPStream](https://bgpstream.caida.org/)
 
 ## Articles
 
