@@ -14,9 +14,15 @@ theme = "PaperMod"
   weight = 1
 
 [[menu.main]]
+identifier = "censored-lab"
+name = "Censored Lab"
+url = "/censored-lab"
+weight = 2
+
+[[menu.main]]
   name = "About"
   url = "/about"
-  weight = 2
+  weight = 3
 
 [taxonomies]
   tag = "tags"
