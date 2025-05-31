@@ -2,32 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Welcome to Censored State on Censored State</title>
-    <link>http://localhost:1313/</link>
+    <link>https://censored-state.pages.dev/</link>
     <description>Recent content in Welcome to Censored State on Censored State</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 May 2025 10:23:30 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 May 2025 11:47:03 -0400</lastBuildDate>
+    <atom:link href="https://censored-state.pages.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Behind the Blackout: The Mechanisms, Monitoring, and Impact of Internet Shutdowns</title>
+      <link>https://censored-state.pages.dev/posts/behind-the-blackout/</link>
+      <pubDate>Sat, 31 May 2025 11:47:03 -0400</pubDate>
+      <guid>https://censored-state.pages.dev/posts/behind-the-blackout/</guid>
+      <description>&lt;h3 id=&#34;internet-shutdowns-may-be-purposeful-or-due-to-poor-infrastructure-but-their-occurrence-and-impacts-can-be-measured&#34;&gt;Internet shutdowns may be purposeful or due to poor infrastructure, but their occurrence and impacts can be measured.&lt;/h3&gt;
+&lt;p&gt;&lt;img alt=&#34;title picture&#34; loading=&#34;lazy&#34; src=&#34;https://censored-state.pages.dev/images/title.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;internet-shutdowns-exams-protests-and-infrastructure-failures&#34;&gt;Internet Shutdowns: Exams, Protests, and Infrastructure Failures&lt;/h2&gt;
+&lt;p&gt;On two days this week, May 20th and May 22nd, monitors of internet connectivity showed &lt;strong&gt;widespread internet outages in Iraq.&lt;/strong&gt; This occurred on both days from 03:00 and and 05:00 UTC (6:00 AM to 8:00 AM) and coincided with national school exams in the country. The move, ordered by the Iraqi government, is designed to prevent cheating during the exams. Since 2022, internet shutdowns during exams have occurred over 100 times. Digital rights groups such as Access Now have petitioned Prime Minister Iraq’s Mohammed Shia’ Al Sudani to keep the internet on. They contend that the shutdowns do not control cheating and have not prevented the sharing of exam answers.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Golden Shield: The Inner Workings of China&#39;s Great Firewall</title>
+      <link>https://censored-state.pages.dev/posts/golden-shield/</link>
+      <pubDate>Sun, 18 May 2025 10:25:02 -0400</pubDate>
+      <guid>https://censored-state.pages.dev/posts/golden-shield/</guid>
+      <description>&lt;h2 id=&#34;china-implements-the-golden-shield&#34;&gt;China Implements the Golden Shield&lt;/h2&gt;
+&lt;p&gt;The Chinese government has recognized since 1998 that the internet had the power to expose their population to a world of information. They also knew that much of this information had the potential to challenge the official narrative of the communist party. Determined to get ahead of what they saw as an existential threat, the government began work on a massive censorship apparatus. This project was named the &lt;strong&gt;Golden Shield&lt;/strong&gt; by its builders, but is known to the outside world as the &lt;strong&gt;&amp;ldquo;Great Firewall of China.&amp;rdquo;&lt;/strong&gt;  The first phase of the Golden Shield project wasn&amp;rsquo;t completed until 2006, but it has continued to expand and is now arguably the most advanced system of its kind in the world.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Freedom, With Limits: Censorship in Democracies</title>
+      <link>https://censored-state.pages.dev/posts/censrship-in-democracies/</link>
+      <pubDate>Thu, 15 May 2025 10:34:25 -0400</pubDate>
+      <guid>https://censored-state.pages.dev/posts/censrship-in-democracies/</guid>
+      <description>&lt;h2 id=&#34;censorship-is-not-just-for-authoritarians&#34;&gt;Censorship Is Not Just For Authoritarians&lt;/h2&gt;
+&lt;p&gt;Recently I have written about &lt;strong&gt;online censorship&lt;/strong&gt; that takes place in very authoritarian countries such as &lt;a href=&#34;https://merecat25.substack.com/p/russia-the-censored-state?r=l5bk9&#34;&gt;Russia&lt;/a&gt; and &lt;a href=&#34;https://merecat25.substack.com/p/golden-shield-the-inner-workings?r=l5bk9&#34;&gt;China&lt;/a&gt;. Anybody with even a passing knowledge of current events would not be surprised that these governments, as well as other oppressive regimes like Turkey, Iran, and Myanmar, censor what their citizens see online. In Freedom House&amp;rsquo;s publication &lt;a href=&#34;https://freedomhouse.org/sites/default/files/2024-10/FREEDOM-ON-THE-NET-2024-DIGITAL-BOOKLET.pdf&#34;&gt;Freedom On The Net&lt;/a&gt;, China, Russia, Iran, and Myanmar rank at the very bottom of the rankings (China gets a 9 out of 100).&lt;/p&gt;</description>
+    </item>
     <item>
       <title>VPNs: Can They Outrun the Censors? What You Need to Know</title>
-      <link>http://localhost:1313/posts/vpns-can-they-outrun-the-censors/</link>
+      <link>https://censored-state.pages.dev/posts/vpns-can-they-outrun-the-censors/</link>
       <pubDate>Sun, 11 May 2025 10:23:30 -0400</pubDate>
-      <guid>http://localhost:1313/posts/vpns-can-they-outrun-the-censors/</guid>
+      <guid>https://censored-state.pages.dev/posts/vpns-can-they-outrun-the-censors/</guid>
       <description>&lt;h2 id=&#34;virtual-private-networks&#34;&gt;Virtual Private Networks&lt;/h2&gt;
 &lt;p&gt;Virtual Private Networks (VPNs) are one of the most important tools in the fight against online censorship. A VPN can allow an internet user to surf the web with reasonable anonymity, access websites that may be blocked in their country, and sometimes even bypass advances censorship technologies. Because of these and other abilities, citizens of authoritarian regimes can get news, entertainment, and other information otherwise unavailable to them. A VPN, though, is not a panacea, and even the best VPNs have limitations.&lt;/p&gt;</description>
     </item>
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://censored-state.pages.dev/about/</link>
       <pubDate>Sun, 11 May 2025 09:48:57 -0400</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://censored-state.pages.dev/about/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Censored State&lt;/strong&gt; is a project exploring censorship, surveillance, and digital resistance.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Circumvention Tools</title>
-      <link>http://localhost:1313/circumvention-tools/</link>
+      <link>https://censored-state.pages.dev/circumvention-tools/</link>
       <pubDate>Sun, 11 May 2025 09:48:57 -0400</pubDate>
-      <guid>http://localhost:1313/circumvention-tools/</guid>
+      <guid>https://censored-state.pages.dev/circumvention-tools/</guid>
       <description>&lt;h1 id=&#34;here-are-tools-and-services-that-help-bypass-censorship-and-maintain-online-privacy&#34;&gt;Here are tools and services that help bypass censorship and maintain online privacy.&lt;/h1&gt;
 &lt;h2 id=&#34;circumvention-tools&#34;&gt;Circumvention Tools&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://tails.net/&#34;&gt;Tails&lt;/a&gt; (Live Linux Operating System)&lt;/p&gt;
