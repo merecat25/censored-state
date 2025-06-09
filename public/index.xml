@@ -6,8 +6,23 @@
     <description>Recent content in Welcome to Censored State on Censored State</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 31 May 2025 11:47:03 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 31 May 2025 13:28:03 -0400</lastBuildDate>
     <atom:link href="https://censored-state.pages.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Censored Lab</title>
+      <link>https://censored-state.pages.dev/censored-lab/</link>
+      <pubDate>Sat, 31 May 2025 13:28:03 -0400</pubDate>
+      <guid>https://censored-state.pages.dev/censored-lab/</guid>
+      <description>&lt;p&gt;Welcome to Censored Lab!&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;lab pic&#34; loading=&#34;lazy&#34; src=&#34;https://censored-state.pages.dev/images/lab_picture.jpg&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;general-information&#34;&gt;General Information&lt;/h3&gt;
+&lt;p&gt;For general information about how censorship works, and information about IP Addresses, DNS, Deep Packet Inspection, and other subjects, see:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://merecat25.substack.com/p/censorship-and-surveillance-in-the&#34;&gt;Censorship and Surveillance in the Digital Age: Part One&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://merecat25.substack.com/p/censorship-and-surveillance-in-the-5a4&#34;&gt;Censorship and Surveillance in the Digital Age: Part Two&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://merecat25.substack.com/p/golden-shield-the-inner-workings&#34;&gt;Golden Shield: The Inner Workings of China&amp;rsquo;s Great Firewall&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://merecat25.substack.com/p/golden-shield-the-inner-workings&#34;&gt;Behind the Blackout: The Mechanisms, Monitoring, and Impact of Internet Shutdowns&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;See also the &lt;a href=&#34;https://merecat25.substack.com/p/circumvention-tools&#34;&gt;Resources Page&lt;/a&gt; of this blog for links to anti-censorship tools and other informational sites.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Behind the Blackout: The Mechanisms, Monitoring, and Impact of Internet Shutdowns</title>
       <link>https://censored-state.pages.dev/posts/behind-the-blackout/</link>
