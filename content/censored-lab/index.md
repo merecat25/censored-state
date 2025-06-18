@@ -171,3 +171,211 @@ If the user on Windows tries to browse to facebook.com, the censor will see
 ## Conclusion of This Section
 
 The goal of all of this is to simulate how a repressive government like China could block and poison DNS. One thing to add: since I am not an expert in networking (although I have a Network+ certification), **I LIBERALLY relied on ChatGPT and Perplexity to help resolve problems and develop testing ideas**. All the writing is mine, but much of the technical stuff would have been difficult without AI help.
+
+### **Introduction: Implementing SNI-Based Censorship Using Suricata and iptables**
+
+In this lab, I implemented a basic deep packet inspection (DPI) censorship mechanism that mirrors techniques used by real-world network censors. The goal was to identify and block access to a specific website—in this case, `www.torproject.org`—based on the Server Name Indication (SNI) field of encrypted TLS traffic.
+
+To accomplish this, I configured Suricata, a powerful open-source intrusion detection system, to inspect network traffic on the gateway (Kali Linux) and generate an alert whenever an outbound TLS handshake contained the SNI `torproject.org`. A custom rule was created in Suricata to match on this domain name, and its alerts were monitored in real time using a Bash script.
+
+Upon detecting the SNI match, the script extracted the source IP address from the Suricata alert and dynamically inserted a `DROP` rule into the system’s `iptables` FORWARD chain. This blocked further traffic from the offending client. Additional safeguards were implemented to ensure IPv6 traffic—commonly used to bypass IPv4-based filtering—was also disabled or explicitly blocked.
+
+This configuration demonstrates a simple but effective censorship model that can:
+
+- Detect access to targeted encrypted services via SNI
+    
+- Dynamically respond by blocking client traffic at the firewall level
+    
+- Be expanded to include multiple domains, timed bans, or automated logging/reporting
+    
+
+The result is a functioning prototype of content-based network control that highlights both the feasibility and limitations of SNI-based censorship in modern network environments.
+
+* * *
+
+Suricata Setup
+
+```bash
+`sudo apt updatesudo apt install suricata`
+```
+
+Confirm it is working
+
+```bash
+`sudo suricata -i eth0 -v`
+```
+
+Be sure config file is set for local.rules
+
+```bash
+`sudo nano /etc/suricata/suricata.yaml`
+```
+
+and be sure says
+
+```bash
+`rule-files:  - local.rules`
+```
+
+(It will likely say suricata.rules so change it)
+
+Edit rules
+
+```bash
+`sudo nano /var/lib/suricata/rules/local.rules`
+```
+
+Then
+
+```bash
+`sudo suricata-updatesudo systemctl restart suricata`
+```
+
+Now, if you go to te Windows VM and surf to torproject.org, you will get and alert if you check
+
+```bash
+`sudo tail -f /var/log/suricata/fast.log`
+```
+
+Suricata alert for torproject.org
+
+```bash
+`{"timestamp":"2025-06-14T13:41:14.161249-0400","flow_id":609456373043862,"in_iface":"eth0","event_type":"alert","src_ip":"192.168.1.101","src_port":50580,"dest_ip":"204.8.99.146","dest_port":443,"proto":"TCP","pkt_src":"wire/pcap","tx_id":0,"alert":{"action":"allowed","gid":1,"signature_id":100001,"rev":1,"signature":"Blocked SNI contains torproject.org","category":"","severity":3},"tls":{"sni":"www.torproject.org","version":"TLS 1.3"},"app_proto":"tls","direction":"to_server","flow":{"pkts_toserver":5,"pkts_toclient":5,"bytes_toserver":2197,"bytes_toclient":3208,"start":"2025-06-14T13:41:14.076364-0400","src_ip":"192.168.1.101","dest_ip":"204.8.99.146","src_port":50580,"dest_port":443}}`
+```
+
+* * *
+
+Now, we can go back to our IP and DNS blocking and add rules to block Tor. We could also set Suricata to trigger a rule blocking torproject.org.  
+This is a little more complicated.
+
+First, Kali has to be set as the gateway (IPFire is off)
+
+On Virtualbox, Kali's first interface is NAT, the second in the internal network.
+
+Go to
+
+```bash
+`sudo nano /etc/network/interfaces`
+```
+
+and add
+
+```bash
+`auto eth0iface eth0 inet dhcpauto eth1iface eth1 inet static  address 192.168.56.1  netmask 255.255.255.0`
+```
+
+Then enable NAT and FORWARD rules on Kali
+
+```bash
+`# Enable IP forwardingecho 1 | sudo tee /proc/sys/net/ipv4/ip_forwardsudo sysctl -w net.ipv4.ip_forward=1# Make it permanentsudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf`
+```
+
+Then add the Forwarding Rules
+
+```bash
+`# NAT for outbound trafficsudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE# Allow forwardingsudo iptables -A FORWARD -i eth1 -o eth0 -j ACCEPTsudo iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT`
+```
+
+Add Suricata TLS rule
+
+```bash
+`sudo nano /var/lib/suricata/rules/local.rules`
+```
+
+Add the rule (all in one line)
+
+```bash
+`alert tls any any -> any any (msg:"Blocked SNI contains torproject.org"; tls_sni; content:"torproject.org"; nocase; sid:100001; rev:1;)`
+```
+
+Run Suricata
+
+```bash
+`sudo suricata -c /etc/suricata/suricata.yaml -i eth1`
+```
+
+Add the IP-Blocking Script to block torproject.org in real time
+
+```bash
+`sudo nano /usr/local/bin/suri-block.sh`
+```
+
+```bash
+`#!/bin/bashLOGFILE="/var/log/suri-blocked.log"EVE_FILE="/var/log/suricata/eve.json"# Log the user running the scriptecho "Running as user: $(whoami)" >> /tmp/suri-script.logtail -Fn0 "$EVE_FILE" | jq -c 'select(.event_type=="alert" and .alert.signature_id==100001)' | while read -r line; do    SRC_IP=$(echo "$line" | jq -r '.src_ip')    MSG=$(echo "$line" | jq -r '.alert.signature')    DATE=$(date +'%Y-%m-%d %H:%M:%S')    # Debug log    echo "[DEBUG] Attempting to block $SRC_IP at $DATE" >> /tmp/suri-debug.log    # Block source IP on FORWARD chain if not already blocked    if ! iptables -C FORWARD -s "$SRC_IP" -j DROP 2>/dev/null; then        iptables -A FORWARD -s "$SRC_IP" -j DROP 2>> /var/log/suri-iptables-errors.log        if [ $? -eq 0 ]; then            echo "$DATE - Blocked $SRC_IP for: $MSG" | tee -a "$LOGFILE"        else            echo "$DATE - Failed to block $SRC_IP" >> /var/log/suri-iptables-errors.log        fi    fidone`
+```
+
+Make it executable
+
+```bash
+`sudo chmod +x /usr/local/bin/suri-block.sh`
+```
+
+Then run it
+
+```bash
+`sudo /usr/local/bin/suri-block.sh`
+```
+
+When I tried to go to www.torproject.org on Windows, I get the following on Suricata
+
+```bash
+`2025-06-14 20:46:05 - Blocked 192.168.56.101 for: Blocked SNI contains torproject.org`
+```
+
+Note, to make this work, I disabled ipv6 on Kali
+
+```bash
+`sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1`
+```
+
+Firefox does not reach torproject.org, and If I check
+
+```bash
+`sudo iptables -L FORWARD -n --line-numbers`
+```
+
+I get
+
+```bash
+`Chain FORWARD (policy ACCEPT)num  target     prot opt source               destination         1    DROP       all  --  192.168.56.101       0.0.0.0/0`
+```
+
+So, browsing to torproject.org triggers an alert as seen in the first part, then blocks access to the website by triggering an iptables rule!
+
+If we start Tor Browser and go to www.torproject.org, it does connect and the rule is not triggered. I ran
+
+```bash
+sudo tcpdump -i eth1 host 192.168.56.101`
+```
+
+and got
+
+```bash
+`14:16:16.434242 ARP, Request who-has 192.168.56.101 tell 192.168.56.1, length 2814:16:16.435977 ARP, Reply 192.168.56.101 is-at 08:00:27:7f:00:56 (oui Unknown), length 4614:16:17.388364 IP static.166.233.108.65.clients.your-server.de.9001 > 192.168.56.101.49191: Flags [P.], seq 387115844:387116380, ack 150732934, win 65535, length 53614:16:17.452908 IP 192.168.56.101.49191 > static.166.233.108.65.clients.your-server.de.9001: Flags [.], ack 536, win 64240, length 014:16:19.382150 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [P.], seq 386754002:386754538, ack 948302314, win 65535, length 53614:16:19.468551 IP 192.168.56.101.49192 > v2202504171896332841.powersrv.de.45785: Flags [.], ack 536, win 63704, length 014:16:25.431883 IP static.166.233.108.65.clients.your-server.de.9001 > 192.168.56.101.49191: Flags [P.], seq 536:1072, ack 1, win 65535, length 53614:16:25.480870 IP 192.168.56.101.49191 > static.166.233.108.65.clients.your-server.de.9001: Flags [.], ack 1072, win 63704, length 014:16:26.672183 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [P.], seq 536:1072, ack 1, win 65535, length 53614:16:26.717379 IP 192.168.56.101.49192 > v2202504171896332841.powersrv.de.45785: Flags [.], ack 1072, win 63168, length 014:16:29.469297 IP 192.168.56.101.49192 > v2202504171896332841.powersrv.de.45785: Flags [P.], seq 1:537, ack 1072, win 63168, length 53614:16:29.469907 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [.], ack 537, win 65535, length 014:16:29.707100 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [P.], seq 1072:1608, ack 537, win 65535, length 53614:16:29.710099 IP 192.168.56.101.49192 > v2202504171896332841.powersrv.de.45785: Flags [P.], seq 537:1587, ack 1608, win 64240, length 105014:16:29.710976 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [.], ack 1587, win 65535, length 014:16:29.932352 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [.], seq 1608:3068, ack 1587, win 65535, length 146014:16:29.932408 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [.], seq 3068:4528, ack 1587, win 65535, length 146014:16:29.932410 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [P.], seq 4528:5228, ack 1587, win 65535, length 70014:16:29.933267 IP 192.168.56.101.49192 > v2202504171896332841.powersrv.de.45785: Flags [.], ack 5228, win 64240, length 014:16:30.061351 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [P.], seq 5228:5764, ack 1587, win 65535, length 53614:16:30.063834 IP 192.168.56.101.49192 > v2202504171896332841.powersrv.de.45785: Flags [P.], seq 1587:2637, ack 5764, win 63704, length 105014:16:30.064440 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [.], ack 2637, win 65535, length 014:16:30.074614 IP static.166.233.108.65.clients.your-server.de.9001 > 192.168.56.101.49191: Flags [P.], seq 1072:1608, ack 1, win 65535, length 53614:16:30.148596 IP 192.168.56.101.49191 > static.166.233.108.65.clients.your-server.de.9001: Flags [.], ack 1608, win 63168, length 014:16:30.205620 IP 192.168.56.101.49191 > static.166.233.108.65.clients.your-server.de.9001: Flags [.], seq 1:1461, ack 1608, win 63168, length 146014:16:30.205635 IP 192.168.56.101.49191 > static.166.233.108.65.clients.your-server.de.9001: Flags [P.], seq 1461:1565, ack 1608, win 63168, length 10414:16:30.205636 IP 192.168.56.101.49192 > v2202504171896332841.powersrv.de.45785: Flags [P.], seq 2637:3173, ack 5764, win 63704, length 53614:16:30.206004 IP static.166.233.108.65.clients.your-server.de.9001 > 192.168.56.101.49191: Flags [.], ack 1461, win 65535, length 014:16:30.206061 IP static.166.233.108.65.clients.your-server.de.9001 > 192.168.56.101.49191: Flags [.], ack 1565, win 65535, length 014:16:30.206379 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [.], ack 3173, win 65535, length 014:16:30.269164 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [P.], seq 5764:6300, ack 3173, win 65535, length 53614:16:30.273408 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [.], seq 6300:7760, ack 3173, win 65535, length 146014:16:30.273481 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [P.], seq 7760:9220, ack 3173, win 65535, length 146014:16:30.274311 IP 192.168.56.101.49192 > v2202504171896332841.powersrv.de.45785: Flags [.], ack 9220, win 64240, length 014:16:30.312728 IP v2202504171896332841.powersrv.de.45785 > 192.168.56.101.49192: Flags [.], seq 9220:10680, ack 3173, win 65535, length 1460`
+```
+
+So we captured Windows communicating on non standard ports:
+
+9001 — commonly used by Tor relays
+
+45785 — likely another Tor relay port
+
+We could add a rule to Suricata to trigger an alert on port 9001
+
+```bash
+`alert tcp any any -> any 9001 (msg:"Tor ORPort Access Detected"; sid:100005; rev:1;)`
+```
+
+And we could look up know Tor relay IPs and block them
+
+https://check.torproject.org/torbulkexitlist
+
+https://metrics.torproject.org/collector.html
+
+Then we could try to access sites using Tor pluggable transports like
+
+- obfs4
+    
+- Snowflake
+    
+- Meek

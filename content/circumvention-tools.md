@@ -4,6 +4,9 @@ date: 2025-05-11T09:48:57-04:00
 draft: false
 ---
 
+![resources-pic](/images/resources.jpg)
+
+
 # Here are tools and services that help bypass censorship and maintain online privacy.
 
 
