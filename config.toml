@@ -17,6 +17,8 @@ theme = "PaperMod"
   name = "Substack"
   url = "https://merecat25.substack.com"
 
+[menu]
+
 [[menu.main]]
   name = "Resources and Tools"
   url = "/circumvention-tools"
@@ -36,3 +38,4 @@ weight = 2
 [taxonomies]
   tag = "tags"
   category = "categories"
+
