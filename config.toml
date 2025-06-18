@@ -7,7 +7,15 @@ theme = "PaperMod"
   author = "Merecat"
   defaultTheme = "auto"
   ShowReadingTime = true
+  ShowSearch = true
 
+[[params.socialIcons]]
+name = "GitHub"
+url = "https://github.com/merecat25"
+
+[[params.socialIcons]]
+name = "Substack"
+url = "https://"merecat25.substack.com"
 [[menu.main]]
   name = "Resources and Tools"
   url = "/circumvention-tools"
