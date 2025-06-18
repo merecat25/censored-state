@@ -19,21 +19,21 @@ theme = "PaperMod"
 
 [menu]
 
-[[menu.main]]
-  name = "Resources and Tools"
-  url = "/circumvention-tools"
-  weight = 1
+  [[menu.main]]
+    name = "Resources and Tools"
+    url = "/circumvention-tools"
+    weight = 1
 
-[[menu.main]]
-identifier = "censored-lab"
-name = "Censored Lab"
-url = "/censored-lab"
-weight = 2
+  [[menu.main]]
+    identifier = "censored-lab"
+    name = "Censored Lab"
+    url = "/censored-lab"
+    weight = 2
 
-[[menu.main]]
-  name = "About"
-  url = "/about"
-  weight = 3
+  [[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 3
 
 [taxonomies]
   tag = "tags"
