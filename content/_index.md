@@ -2,7 +2,7 @@
 title: "Welcome to Censored State"
 ---
 
-![Home Banner](/images/home-banner.jpg)
+![Home Banner](/images/cens-state.PNG)
 
 
 Welcome to **Censored State**, where we explore tools and ideas for resisting censorship.
