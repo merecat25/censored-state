@@ -15,7 +15,7 @@ url = "https://github.com/merecat25"
 
 [[params.socialIcons]]
 name = "Substack"
-url = "https://"merecat25.substack.com"
+url = "https://merecat25.substack.com"
 [[menu.main]]
   name = "Resources and Tools"
   url = "/circumvention-tools"
