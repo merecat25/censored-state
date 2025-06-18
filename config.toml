@@ -10,12 +10,13 @@ theme = "PaperMod"
   ShowSearch = true
 
 [[params.socialIcons]]
-name = "GitHub"
-url = "https://github.com/merecat25"
+  name = "GitHub"
+  url = "https://github.com/merecat25"
 
 [[params.socialIcons]]
-name = "Substack"
-url = "https://merecat25.substack.com"
+  name = "Substack"
+  url = "https://merecat25.substack.com"
+
 [[menu.main]]
   name = "Resources and Tools"
   url = "/circumvention-tools"
