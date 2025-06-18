@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Censored State"
+layout: "home"
 ---
 
 ![Home Banner](images/cens-state.png)
