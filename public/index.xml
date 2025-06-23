@@ -6,8 +6,18 @@
     <description>Recent content in Welcome to Censored State on Censored State</description>
     <generator>Hugo -- 0.147.8</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 31 May 2025 13:28:03 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 23 Jun 2025 08:50:11 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Iran: The Disconnected Nation</title>
+      <link>http://localhost:1313/posts/iran-censorship/</link>
+      <pubDate>Mon, 23 Jun 2025 08:50:11 -0400</pubDate>
+      <guid>http://localhost:1313/posts/iran-censorship/</guid>
+      <description>&lt;h2 id=&#34;the-mechanisms-and-human-cost-of-irans-censorship-regime&#34;&gt;The mechanisms and human cost of Iran&amp;rsquo;s censorship regime.&lt;/h2&gt;
+&lt;p&gt;&lt;img alt=&#34;iranian-flag&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/iran-flag.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;the-israel-iran-conflict-highlights-lack-of-freedom-in-iran&#34;&gt;The Israel-Iran Conflict Highlights Lack of Freedom in Iran&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve been wanting to write a post about online censorship in Iran for a while. With the week-old onset of a major conflict between Iran and Israel, this seemed like a good time to do it. Iran has a very sophisticated censorship system. The entire system, including an advanced technical infrastructure, the Iranian legal system, and aggressive repression of any dissident voices, makes the Iranian censorship apparatus second only to China in its scope (for more information about China&amp;rsquo;s Great Firewall, see the post &lt;a href=&#34;https://merecat25.substack.com/p/golden-shield-the-inner-workings?r=l5bk9&#34;&gt;Golden Shield: The Inner Workings of China&amp;rsquo;s Great Firewall&lt;/a&gt;).&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Censored Lab</title>
       <link>http://localhost:1313/censored-lab/</link>
@@ -69,7 +79,8 @@
       <link>http://localhost:1313/circumvention-tools/</link>
       <pubDate>Sun, 11 May 2025 09:48:57 -0400</pubDate>
       <guid>http://localhost:1313/circumvention-tools/</guid>
-      <description>&lt;h1 id=&#34;here-are-tools-and-services-that-help-bypass-censorship-and-maintain-online-privacy&#34;&gt;Here are tools and services that help bypass censorship and maintain online privacy.&lt;/h1&gt;
+      <description>&lt;p&gt;&lt;img alt=&#34;resources-pic&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/resources.jpg&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;here-are-tools-and-services-that-help-bypass-censorship-and-maintain-online-privacy&#34;&gt;Here are tools and services that help bypass censorship and maintain online privacy.&lt;/h1&gt;
 &lt;h2 id=&#34;circumvention-tools&#34;&gt;Circumvention Tools&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://tails.net/&#34;&gt;Tails&lt;/a&gt; (Live Linux Operating System)&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://protonvpn.com/&#34;&gt;ProtonVPN&lt;/a&gt;&lt;/p&gt;
