@@ -7,23 +7,35 @@ theme = "PaperMod"
   author = "Merecat"
   defaultTheme = "auto"
   ShowReadingTime = true
+  ShowSearch = true
 
-[[menu.main]]
-  name = "Resources and Tools"
-  url = "/circumvention-tools"
-  weight = 1
+[[params.socialIcons]]
+  name = "GitHub"
+  url = "https://github.com/merecat25"
 
-[[menu.main]]
-identifier = "censored-lab"
-name = "Censored Lab"
-url = "/censored-lab"
-weight = 2
+[[params.socialIcons]]
+  name = "Substack"
+  url = "https://merecat25.substack.com"
 
-[[menu.main]]
-  name = "About"
-  url = "/about"
-  weight = 3
+[menu]
+
+  [[menu.main]]
+    name = "Resources and Tools"
+    url = "/circumvention-tools"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "censored-lab"
+    name = "Censored Lab"
+    url = "/censored-lab"
+    weight = 2
+
+  [[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 3
 
 [taxonomies]
   tag = "tags"
   category = "categories"
+
