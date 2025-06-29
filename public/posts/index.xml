@@ -6,15 +6,25 @@
     <description>Recent content in Posts on Censored State</description>
     <generator>Hugo -- 0.147.8</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Jun 2025 08:50:11 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 29 Jun 2025 08:59:17 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The JA3 Fingerprint as a Model of Censorship by Deep Packet Inspection</title>
+      <link>http://localhost:1313/posts/ja3/</link>
+      <pubDate>Sun, 29 Jun 2025 08:59:17 -0400</pubDate>
+      <guid>http://localhost:1313/posts/ja3/</guid>
+      <description>&lt;h2 id=&#34;ja3-fingerprinting-offers-a-good-model-for-deep-packet-inspection-by-a-government-censorship-apparatus&#34;&gt;JA3 Fingerprinting offers a good model for deep packet inspection by a government censorship apparatus.&lt;/h2&gt;
+&lt;p&gt;&lt;img alt=&#34;title_image&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/ja3.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;fingerprints-of-the-tls-handshake&#34;&gt;Fingerprints of the TLS Handshake&lt;/h2&gt;
+&lt;p&gt;When a client computer needs to establish a connection to a server, they need to &amp;ldquo;agree&amp;rdquo; on certain parameters like types of encryption used, identities, and session keys. &lt;strong&gt;Transport Layer Security (TLS)&lt;/strong&gt; is used to encrypt the data transfer, and the &lt;strong&gt;TLS Handshake&lt;/strong&gt; is how the two computers reach this agreement. Since the TLS handshake is not fully encrypted, it is possible to generate a &lt;strong&gt;fingerprint&lt;/strong&gt; of this handshake. This information can be used for several legitimate reasons:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Iran: The Disconnected Nation</title>
       <link>http://localhost:1313/posts/iran-censorship/</link>
       <pubDate>Mon, 23 Jun 2025 08:50:11 -0400</pubDate>
       <guid>http://localhost:1313/posts/iran-censorship/</guid>
       <description>&lt;h2 id=&#34;the-mechanisms-and-human-cost-of-irans-censorship-regime&#34;&gt;The mechanisms and human cost of Iran&amp;rsquo;s censorship regime.&lt;/h2&gt;
-&lt;p&gt;&lt;img alt=&#34;iranian-flag&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/iran-flag.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;iranian-flag&#34; loading=&#34;lazy&#34; src=&#34;images/iran-flag.jpg&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;the-israel-iran-conflict-highlights-lack-of-freedom-in-iran&#34;&gt;The Israel-Iran Conflict Highlights Lack of Freedom in Iran&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;ve been wanting to write a post about online censorship in Iran for a while. With the week-old onset of a major conflict between Iran and Israel, this seemed like a good time to do it. Iran has a very sophisticated censorship system. The entire system, including an advanced technical infrastructure, the Iranian legal system, and aggressive repression of any dissident voices, makes the Iranian censorship apparatus second only to China in its scope (for more information about China&amp;rsquo;s Great Firewall, see the post &lt;a href=&#34;https://merecat25.substack.com/p/golden-shield-the-inner-workings?r=l5bk9&#34;&gt;Golden Shield: The Inner Workings of China&amp;rsquo;s Great Firewall&lt;/a&gt;).&lt;/p&gt;</description>
     </item>

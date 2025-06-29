@@ -6,7 +6,7 @@ draft: false
 
 ## The mechanisms and human cost of Iran's censorship regime.
 
-![iranian-flag](/images/iran-flag.jpg)
+![iranian-flag](images/iran-flag.jpg)
 
 ## The Israel-Iran Conflict Highlights Lack of Freedom in Iran
 
