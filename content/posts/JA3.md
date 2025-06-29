@@ -108,7 +108,7 @@ Now, if I start the **Tor browser** on Windows 10 and browse to some websites, S
   "ja3": null
 ```
 
-As you can see, the SNI and JA3 are "null." What is happening is that Tor is likely using **pluggable transports** to encrypt or randomize the TLS handshake (or not use TLS at all), preventing the JA3 fingerprint from being calculated. Of course, the assumption is that if JA3 can't be detected, then making a rule to block it would be impossible.
+As you can see, the SNI and JA3 are "null." What is happening is that Tor is likely using **pluggable transports** to encrypt or randomize the TLS handshake (or isn't using TLS at all), preventing the JA3 fingerprint from being calculated. Of course, the assumption is that if JA3 can't be detected, then making a rule to block it would be impossible.
 
 ## Attempting to Find the Psiphon JA3 Hash
 
@@ -120,7 +120,7 @@ Besides Tor, there is another tool commonly recommended for censorship circumven
 
 For this test, I added a rule to Suricata for Psiphon:
 
-```
+```bash
 alert tls any any -> any any (msg:"Possible Psiphon TLS JA3 detected"; ja3.hash; content:"b8419f4529b976b01d86fb910efac57f"; sid:1003001; rev:1;)
 ```
 
