@@ -379,3 +379,40 @@ Then we could try to access sites using Tor pluggable transports like
 - Snowflake
     
 - Meek
+
+## SNI and Keyword Filtering Continued
+
+The idea behind this section of the lab is to demonstrate filtering via keyword or Server Name Indicator (SNI). The setup once again involves using Windows 10 as our censored VM and Kali (set up to forward traffic) as our censoring VM. Using Telegram as our circumvention tool, we can start with the command on Kali
+
+```bash
+tshark -i eth1 -Y "tls.handshake.extensions_server_name contains \"t.me\"" -T fields -e ip.dst -e tls.handshake.extensions_server_name
+```
+
+This monitors the eth1 interface for the SNI "t.me" and extracts the destination IP and the server name. With it we detect t.me in the unencrypted part of the TLS handshake.
+
+We can use the same command for "telegram.org"
+
+```bash
+tshark -i eth1 -Y "tls.handshake.extensions_server_name contains \"telegram.org\"" -T fields -e ip.dst -e tls.handshake.extensions_server_name
+```
+
+Both VMs are started and then t.me and telegram.org are accessed via the browser. When t.me was accessed, we saw clear TLS handshakes containing the SNI, which could be monitored using tshark. The telegram.org script showed 0 packets, though.
+
+Attempting to block t.me and telegram.org using iptables also showed an interesting result. Here are the iptables commands used:
+
+```bash
+sudo iptables -A OUTPUT -p tcp --dport 443 -m string --string "t.me" --algo bm -j DROP
+sudo iptables -I OUTPUT -p tcp --dport 443 -m string --string "telegram.org" --algo bm -j DROP
+sudo iptables -I FORWARD -p tcp --dport 443 -m string --string "t.me" --algo bm -j DROP
+sudo iptables -I FORWARD -p tcp --dport 443 -m string --string "telegram.org" --algo bm -j DROP
+```
+
+When we go back to Windows, access to t.me is blocked, but telegram.org is reached easily. Why?
+
+The answer lies in the use of QUIC, which telegram uses via HTTP/3. The handshake used by telegram.org used QUIC while t.me used the standard unencrypted TLS Handshake. QUIC uses UDP and encrypts even the equivalent of the SNI during the initial handshake, making it invisible to simple packet inspection tools like iptables. Because the iptables rules were written only for TCP, they had no effect on QUIC traffic, which uses UDP by default. The only way around this is to block QUIC UDP port 443.
+
+```bash
+sudo iptables -A OUTPUT -p udp --dport 443 -j DROP
+```
+
+This forces the connection to fall back to https, and it is subsequently blocked. An additional issue with trying to block using just an iptables match is that the string must match perfectly, or the connection isn't blocked. It is not a robust censorship method. This demonstrates both the power and the limitations of SNI-based filtering. While it’s effective against TLS over TCP where the SNI is visible, it fails against protocols like QUIC unless UDP is explicitly blocked — and even then, success depends on the browser’s fallback behavior.
