@@ -4,6 +4,8 @@ date: 2025-07-18T13:00:14-04:00
 draft: false
 ---
 
+## Hover over or click on a country to see censorship information.
+
 <div class="flourish-embed flourish-map" data-src="visualisation/24252649"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/24252649/thumbnail" width="100%" alt="map visualization" /></noscript></div>
 
 ## Sources
