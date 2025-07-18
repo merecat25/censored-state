@@ -32,3 +32,14 @@ theme = "PaperMod"
   tag = "tags"
   category = "categories"
 
+  [[menu.main]]
+    name = "Censorship Map"
+    url = "/map/"
+    weight = 4
+
+  [markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+
