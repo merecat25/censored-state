@@ -11,6 +11,9 @@ Welcome to **Censored State**, where we explore tools and ideas for resisting ce
 
 ### 🚨 **[View the Censored State Live Dashboard](https://censorship-dashboard.onrender.com)**
 
+**🧪 [Visit the Censorship Laboratory on GitHub](https://github.com/merecat25/censorship-laboratory)**
+
+
 ## 🌐 External Tools for Censorship Tracking
 
 - 🔍 [IODA – Internet Outage Detection](https://ioda.inetintel.cc.gatech.edu/)
